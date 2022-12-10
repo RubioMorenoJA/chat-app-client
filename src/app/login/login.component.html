@@ -1,0 +1,127 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand" style="color:white;">Chat App</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="#navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggle-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto sign-links">
+            <li class="nav-item active">
+                <a (click)="showLogin()" class="nav-link">Sign in<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a (click)="showCreateAccount()" class="nav-link sign-in">Sign up<!--span class="sr-only">(current)</span--></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <!--(ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel name="key"- ->
+            <!--input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required-->
+        </form>
+    </div>
+</nav>
+<div class="login-section">
+    <div class="row justify-content-center">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="sign-in-card" class="card">
+                <div class="card-header" style="text-align: center"><h4>Login</h4></div>
+                <div class="card-body">
+                    <!-- <form [formGroup]="loginForm" (ngSubmit)="login()"> -->
+                    <form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
+                        <div class="form-group row">
+                            <label for="user_name" class="col-md-4 col-form-label text-md-right">Username</label>
+                            <div class="col-md-6">
+                                <!--[formControlName]="'username'"-->
+                                <input type="text" id="user_name" class="form-control" ngModel name="user_name" required
+                                    autofocus>
+                                <!--span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                                   Please provide a valid username
+                                </span-->                                    
+                            </div>
+                        </div>
+ 
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <div class="col-md-6">
+                                <input type="password" id="password" class="form-control" ngModel name="password" required>
+                                <!--span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                                  Password cannot be empty
+                                </span-->                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <span class="col-md-6 offset-md-4 text-md-center">
+                                <button [disabled]="loginForm.invalid" type="submit" class="sign-in btn btn-primary">
+                                    Login
+                                </button>
+                            </span>
+                        </div>
+                        <!--div class="login-failed" *ngIf='this.isError'>
+                             <p class="login-failed-text">Login Failed. Please check your credentials and try again.</p>   
+                        </div>
+                        <div class="login-failed" [ngStyle]="{'background-color': 'green'}" *ngIf="this.registerSuccessMessage.length > 0">
+                            <p class="register-success-text">{{registerSuccessMessage}}</p>   
+                       </div-->                       
+                    </form>
+                </div>
+            </div>
+            <div id="sign-up-card" class="card">
+                <div class="card-header" style="text-align: center"><h4>Create new account</h4></div>
+                <div class="card-body">
+                    <!-- <form [formGroup]="loginForm" (ngSubmit)="login()"> -->
+                    <form #createAccountForm="ngForm" (ngSubmit)="submitNewAccount(createAccountForm)">
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <div class="col-md-6">
+                                <!--[formControlName]="'username'"-->
+                                <input type="email" id="email" class="form-control" ngModel name="email" required
+                                    autofocus>
+                                <!--span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                                   Please provide a valid username
+                                </span-->                                    
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="user_name" class="col-md-4 col-form-label text-md-right">Username</label>
+                            <div class="col-md-6">
+                                <!--[formControlName]="'username'"-->
+                                <input type="text" id="user_name" class="form-control" ngModel name="user_name" required
+                                    autofocus>
+                                <!--span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                                   Please provide a valid username
+                                </span-->                                    
+                            </div>
+                        </div>
+ 
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <div class="col-md-6">
+                                <input type="password" id="password" class="form-control" ngModel name="password" required>
+                                <!--span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                                  Password cannot be empty
+                                </span-->                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <span class="col-md-6 offset-md-4 text-md-center">
+                                <button [disabled]="createAccountForm.invalid" type="submit" class="sign-in btn btn-primary">
+                                    Create account
+                                </button>
+                            </span>
+                        </div>
+                        <!--div class="login-failed" *ngIf='this.isError'>
+                             <p class="login-failed-text">Login Failed. Please check your credentials and try again.</p>   
+                        </div>
+                        <div class="login-failed" [ngStyle]="{'background-color': 'green'}" *ngIf="this.registerSuccessMessage.length > 0">
+                            <p class="register-success-text">{{registerSuccessMessage}}</p>   
+                       </div-->                       
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
