@@ -1,6 +1,6 @@
 # ChatApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1. Currently working with version 18.15.0
 
 ## Development server
 

@@ -5,29 +5,33 @@
 .nav-link {
     cursor: pointer;
 }
-.sign-in {
+.sign-up, .sign-in {
     background-color: blueviolet;
     border-radius: 4px;
     box-shadow: 2px 2px 4px rgb(51, 111, 131);
     color: aliceblue;
+    cursor: pointer;
     border: 0px;
+}
+.sign-up {
+    padding: 8px;    
+}
+.sign-in {    
     padding: 4px;
-    cursor: pointer;   
 }
-a.sign-in, a.nav-link.sign-in {
-    padding-top: 8px;
-}
-.sign-in:hover, a.nav-link.sign-in:hover {
+.sign-in:hover, .nav-link.sign-up:hover {
     background-color: aliceblue;
     border-radius: 4px;
     border: 1px;
     color: blueviolet;
-    border: 0px;
+    border: 0px;    
+}
+/* .sign-up:hover {
+    padding: 8px;
+}
+.sign-in:hover {
     padding: 4px;
-}
-a.nav-link.sign-in:hover {
-    padding-top: 8px;
-}
+} */
 .sign-links li {
     display: flex;
     position: relative;    
